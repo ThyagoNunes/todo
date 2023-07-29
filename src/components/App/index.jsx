@@ -39,11 +39,22 @@ function App() {
     });
   }
 
+  function handleTaskDeletion(taskId) {
+    const newTasks = tasks.filter((task) => task.id !== taskId);
+
+    setTasks(newTasks);
+  }
+
   return (
     <>
       <div className="container">
         <AddTask handleTaskAddition={handleTaskAddition} />
-        <Tasks tasks={tasks} key={tasks.id} handleTaskClick={handleTaskClick} />
+        <Tasks
+          tasks={tasks}
+          key={tasks.id}
+          handleTaskClick={handleTaskClick}
+          handleTaskDeletion={handleTaskDeletion}
+        />
       </div>
     </>
   );
