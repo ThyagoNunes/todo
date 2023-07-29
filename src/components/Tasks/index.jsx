@@ -8,6 +8,7 @@ function Tasks({ tasks, handleTaskClick, handleTaskDeletion }) {
       {tasks.map((task) => (
         <Task
           task={task}
+          key={task.id}
           handleTaskClick={handleTaskClick}
           handleTaskDeletion={handleTaskDeletion}
         />
