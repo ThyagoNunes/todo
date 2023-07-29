@@ -19,6 +19,15 @@ function App() {
     },
   ]);
 
+  function handleTaskClick(taskId) {
+    const newTasks = tasks.map((task) => {
+      if (task.id === taskId) return { ...task, completed: !task.completed };
+      return task;
+    });
+
+    setTasks(newTasks);
+  }
+
   function handleTaskAddition(taskTitle) {
     setTasks((prevState) => {
       const newTask = {
@@ -34,7 +43,7 @@ function App() {
     <>
       <div className="container">
         <AddTask handleTaskAddition={handleTaskAddition} />
-        <Tasks tasks={tasks} />
+        <Tasks tasks={tasks} key={tasks.id} handleTaskClick={handleTaskClick} />
       </div>
     </>
   );
