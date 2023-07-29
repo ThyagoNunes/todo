@@ -1,9 +1,16 @@
 import React from "react";
 import { CgClose, CgInfo } from "react-icons/cg";
+import { useNavigate } from "react-router-dom";
 
 import "./styles.css";
 
 function Task({ task, handleTaskClick, handleTaskDeletion }) {
+  const navigate = useNavigate();
+
+  function handleTaskDetailsClick() {
+    navigate(`/${task.title}`);
+  }
+
   return (
     <div
       key={task.id}
@@ -21,7 +28,10 @@ function Task({ task, handleTaskClick, handleTaskDeletion }) {
         >
           <CgClose />
         </button>
-        <button className="see-task-details-button">
+        <button
+          className="see-task-details-button"
+          onClick={handleTaskDetailsClick}
+        >
           <CgInfo />
         </button>
       </div>
