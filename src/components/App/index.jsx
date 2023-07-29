@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Header from "../Header";
 import Tasks from "../Tasks";
@@ -48,18 +49,27 @@ function App() {
   }
 
   return (
-    <>
+    <Router>
       <div className="container">
         <Header />
-        <AddTask handleTaskAddition={handleTaskAddition} />
-        <Tasks
-          tasks={tasks}
-          key={tasks.id}
-          handleTaskClick={handleTaskClick}
-          handleTaskDeletion={handleTaskDeletion}
-        />
+        <Routes>
+          <Route
+            path="/"
+            exact
+            element={
+              <>
+                <AddTask handleTaskAddition={handleTaskAddition} />
+                <Tasks
+                  tasks={tasks}
+                  handleTaskClick={handleTaskClick}
+                  handleTaskDeletion={handleTaskDeletion}
+                />
+              </>
+            }
+          />
+        </Routes>
       </div>
-    </>
+    </Router>
   );
 }
 
