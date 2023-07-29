@@ -1,8 +1,9 @@
 import React from "react";
+import { CgClose } from "react-icons/cg";
 
 import "./styles.css";
 
-function Task({ task, handleTaskClick }) {
+function Task({ task, handleTaskClick, handleTaskDeletion }) {
   return (
     <div
       className="task-container"
@@ -10,6 +11,15 @@ function Task({ task, handleTaskClick }) {
     >
       <div className="task-title" onClick={() => handleTaskClick(task.id)}>
         {task.title}
+      </div>
+
+      <div className="buttons-container">
+        <button
+          className="buttons-container"
+          onClick={() => handleTaskDeletion(task.id)}
+        >
+          <CgClose />
+        </button>
       </div>
     </div>
   );
