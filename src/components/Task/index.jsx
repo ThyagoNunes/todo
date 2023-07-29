@@ -6,6 +6,7 @@ import "./styles.css";
 function Task({ task, handleTaskClick, handleTaskDeletion }) {
   return (
     <div
+      key={task.id}
       className="task-container"
       style={task.completed ? { borderLeft: "6px solid chartreuse" } : {}}
     >
