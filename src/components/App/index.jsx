@@ -11,18 +11,7 @@ import TaskDetails from "../TaskDetails";
 import "./styles.css";
 
 function App() {
-  const [tasks, setTasks] = useState([
-    {
-      id: 1,
-      title: "Learn programming",
-      completed: false,
-    },
-    {
-      id: 2,
-      title: "Read a book",
-      completed: true,
-    },
-  ]);
+  const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
     const fetchTasks = async () => {
